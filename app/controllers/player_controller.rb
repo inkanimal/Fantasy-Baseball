@@ -1,5 +1,5 @@
 require './config/environment'
 require 'pry'
 
-class UserController < ApplicationController
+class PlayerController < ApplicationController
 end
