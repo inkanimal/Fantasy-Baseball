@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
    end
 
 
-   get '/app' do
+   get '/' do
     # if logged_in?
     #   redirect to '/tweets'
     # else
