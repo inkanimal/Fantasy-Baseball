@@ -32,10 +32,8 @@ class ApplicationController < Sinatra::Base
        redirect  '/signup'
      else
 	   user = User.new(username: params["username"], email: params["email"], password: params["password"])
-
-      if  user.save
+       if  user.save
         session[:user_id] = user.id
-
         redirect "/tweets"
       end
     end
