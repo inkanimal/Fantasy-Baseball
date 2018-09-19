@@ -115,6 +115,7 @@ DEPENDENCIES
   bcrypt
   capybara
   database_cleaner!
+  eventmachine
   pry
   rack-test
   rake

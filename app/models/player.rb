@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 
   belongs_to :team
+
+  def self.valid_params?(params)
+    return !params[:player_name].empty? && !params[:position].empty?
+  end
   # belongs_to :user
 
   #  def slug

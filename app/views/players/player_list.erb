@@ -1,0 +1,6 @@
+<h1>Fantasy Baseball Player List</h1>
+<ul id="players_list">
+  <% @players.each do |player| %>
+   <%= player.player_name %><br />
+   <%= player.position %> <br />
+   <%end%>
