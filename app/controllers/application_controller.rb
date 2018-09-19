@@ -85,7 +85,7 @@ class ApplicationController < Sinatra::Base
    get '/home' do
    if logged_in?
      @user = current_user
-     # @players = Player.all
+     @teams = Team.all
      erb :'teams/home'
    else
      redirect 'users/login'
@@ -103,6 +103,62 @@ class ApplicationController < Sinatra::Base
        redirect  '/home'
      end
    end
+ end
+
+ get '/teams/:id' do
+  if logged_in?
+    @team = Team.find_by_id(params[:id])
+    @user = current_user
+    erb :'teams/show_team'
+  else
+    redirect  '/login'
+  end
+ end
+
+ get '/teams/:id/edit' do
+   if logged_in?
+     @team = Team.find_by_id(params[:id])
+     @user = current_user
+     if @user.id == @team.user_id
+       erb :'teams/edit_team'
+     else
+       redirect  '/home'
+     end
+   else
+     redirect  '/login'
+   end
+ end
+
+ patch '/teams/:id' do
+   if params[:team_name].empty?
+     redirect  "/teams/#{params[:id]}/edit"
+   end
+    @team = Team.find_by_id(params[:id])
+    @user = current_user
+   if @team.update(team_name: params[:team_name])
+
+     redirect  "/teams/#{@team.id}"
+   end
+  end
+
+ delete '/teams/:id' do
+   @team = Team.find_by_id(params[:id])
+   @user = current_user
+   if @user.id == @team.user_id
+     @team.destroy
+     redirect  '/home'
+   else
+     redirect  '/home'
+   end
+ end
+
+ get "/players/new" do
+   if !logged_in?
+    redirect 'users/login'
+   else
+   @user = current_user
+    erb :"players/player_list"
+  end
  end
 
    helpers do

@@ -4,21 +4,17 @@ require 'pry'
 class PlayerController < ApplicationController
 
 
-  get "/players/:id/edit" do
-  
-   @player = Player.find(params[:id])
-   erb :'players/edit'
- end
-
- post "/players/:id" do
-   redirect_if_not_logged_in
-   @player = Player.find(params[:id])
-   unless GolfClub.valid_params?(params)
-     redirect "/clubs/#{@club.id}/edit?error=invalid golf club"
+  get "/players/new" do
+    if !logged_in?
+     redirect 'users/login'
+    else
+    @user = current_user
+     erb :"players/player_list"
    end
-   @player.update(params.select{|k|k=="player_name" || k=="position" || k=="team_id"})
-   redirect "/players/#{@player.id}"
- end
+  end
+
+
+ 
 
  # get "/clubs/:id" do
  #   redirect_if_not_logged_in
