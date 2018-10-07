@@ -1,0 +1,44 @@
+<h1>Update Team</h1>
+
+<form action="/teams/<%=@team.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="team[name]" id="team_name" value="<%=@team.name%>">
+
+  <br></br>
+
+  <label>Draft PLayers</label>
+
+  <br></br>
+
+  <%Player.all.each do |player|%>
+    <input type="checkbox" name="team[player_ids][]" id="player_<%=player.id%>" value="<%=player.id%>"
+     <%='checked' if @team.players.include?(player) %>>
+  <%=player.name%> | <%=player.position%></input>
+    <br></br>
+  <%end%>
+<br></br>
+  <%Stadium.all.each do |stadium|%>
+    <input type="checkbox" name="team[stadium_ids][]" id="stadium_<%=stadium.id%>" value="<%=stadium.id%>"
+     <%='checked' if @team.stadiums.include?(stadium) %>>
+  <%=stadium.name%></input>
+    <br></br>
+  <%end%>
+
+  <br></br>
+
+  <input type="submit" value="Update Team">
+</form>
+  <!--<nav class="clearfix">-->
+    <a href="/home">Team Homepage</a>
+    <br>
+    <a href="/teams/new">Create New Team</a>
+    <br>
+    <a href="/logout">Logout</a>
+  <!--</nav>-->
+
+  <form action="/teams/<%= @team.id %>" method="post" id="edit_team">
+    <input type="hidden" name="_method" value="patch">

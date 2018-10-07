@@ -1,0 +1,26 @@
+
+
+  <h3>Stadium Facts</h3>
+  <br>
+    <strong>Name:</strong>
+    <th><%= @stadium.name %></th>
+    <br>
+    <strong>Year Opened:</strong>
+      <th><%= @stadium.year_opened %></th>
+  <br>
+  <strong>Capacity:</strong>
+    <th><%= @stadium.capacity %></th>
+  <br></br>
+
+
+
+
+
+
+<a class="button" href="/stadiums/<%= @stadium.id %>/edit">Edit Stadium</a>
+<br>
+<a class="button" href="/stadiums">Stadiums</a>
+<br>
+  <a href="/teams/home">Team Homepage</a>
+  <br>
+  <a href="/logout">Logout</a>

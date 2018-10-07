@@ -1,0 +1,14 @@
+
+<h2>Stadiums</h2>
+<h1>All Stadiums</h1>
+<% @stadiums.each do |stadium| %>
+  <a href="/stadiums/<%= stadium.id %>"><%= stadium.name %></a> - <%= stadium.year_opened %> - <%= stadium.capacity %><br>
+<% end %>
+<br><br>
+<a href="/stadiums/new"><input type="button" value="Create New Stadium"></a>
+<!-- add content here -->
+
+<a class="button" href="/teams">Teams</a>
+<a class="button" href="/">Home</a>
+<br>
+<a href="/logout">Logout</a>

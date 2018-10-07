@@ -1,0 +1,18 @@
+
+<h2>Edit Stadium</h2>
+<h1>Edit <%= @Stadium.id %> </h1>
+<form method="POST" action="/stadiums/<%= @stadium.id %>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label><strong>Name:</strong></label><input type="text" name="stadium[name]" id="name" value="<%= @stadium.name %>"><br><br>
+  <label><strong>Year Completed:</strong></label><input type="text" name="stadium[year_opened]" id="year_opened" value="<%= @stadium.year_opened %>"><br><br>
+  <label><strong>Name:</strong></label><input type="text" name="stadium[capacity]" id="capacity" value="<%= @stadium.capacity %>"><br><br>
+
+
+  <input type="submit" value="Edit stadium">
+</form>
+<!-- add content here -->
+
+<a class="button" href="/teams">Stadiums</a>
+<a class="button" href="/">Home</a>
+<br>
+<a href="/logout">Logout</a>

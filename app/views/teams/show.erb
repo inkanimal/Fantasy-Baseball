@@ -1,0 +1,30 @@
+<div class="container">
+<h3><%=@team.name%></h3>
+
+<h4>Current Players:</h4>
+
+<% @team.players.each do |player| %>
+<a href="/players/<%= player.id %>"><%= player.name %> - <%=player.position%></a><br>
+<% end %>
+
+<h4>Home Stadium:</h4>
+<% @team.stadiums.each do |stadium| %>
+<a href="/stadiums/<%= stadium.id %>"><%= stadium.name %></a><br>
+<% end %>
+
+   <br>
+  Draft Players: <a href="/teams/<%= @team.id %>/edit"><input type="submit" id="submit" value="Enter"></a>
+    <br></br>
+  Find Stadiums: <a href="/stadiums"><input type="submit" id="submit" value="Enter"></a>
+ <br></br>
+
+ <form action="/teams/<%= @team.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" id="submit">Delete Team</button>
+  </form>
+
+    <a href="/teams/home">Team Homepage</a>
+    <br>
+    <a href="/teams/new">Create New Team</a>
+    <br>
+    <a href="/logout">Logout</a>
