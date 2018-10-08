@@ -21,6 +21,9 @@
     <br></br>
   <%end%>
 <br></br>
+
+<label>Choose a Stadium</label>
+<br>
   <%Stadium.all.each do |stadium|%>
     <input type="checkbox" name="team[stadium_ids][]" id="stadium_<%=stadium.id%>" value="<%=stadium.id%>"
      <%='checked' if @team.stadiums.include?(stadium) %>>
@@ -28,10 +31,11 @@
     <br></br>
   <%end%>
 
-  <br></br>
+  <br>
 
   <input type="submit" value="Update Team">
 </form>
+<br>
   <!--<nav class="clearfix">-->
     <a href="/home">Team Homepage</a>
     <br>
