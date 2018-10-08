@@ -1,6 +1,6 @@
 
-<h2>Edit Stadium</h2>
-<h1>Edit <%= @Stadium.id %> </h1>
+<h2>Edit Existing Stadium</h2>
+<h1>Edit: </h1>
 <form method="POST" action="/stadiums/<%= @stadium.id %>">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label><strong>Name:</strong></label><input type="text" name="stadium[name]" id="name" value="<%= @stadium.name %>"><br><br>
