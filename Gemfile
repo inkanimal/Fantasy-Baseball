@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 gem 'eventmachine'
+gem 'activemodel', '4.2.7.1', :require => 'active_model'
 
 
 group :test do

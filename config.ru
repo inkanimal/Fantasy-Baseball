@@ -6,5 +6,7 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
+use UsersController
+use TeamsController
 use StadiumsController
 use PlayersController
